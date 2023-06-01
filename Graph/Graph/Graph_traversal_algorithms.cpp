@@ -3,20 +3,30 @@
 #include <vector>
 #include <algorithm>
 
-void depthfirstsearch(std::vector<int>* adj_ptr, int& startnode){
+bool find(std::vector<int> traversed, int& search_element){
+	for (auto element: traversed){
+		if (element == search_element){
+			return true;
+		}
+	}
+	return false;
+}
+
+void depthfirstsearch(std::vector<int>* graph, int& startnode){
 	
 	std::cout << "Depth wise Traversal: ";
 	std::list<int> stack;
 	std::vector<int> traversed;
 	stack.push_back(startnode);
+	
 	while (!stack.empty()){
 		int popped = stack.back();
 		traversed.push_back(popped);
 		std::cout << popped << " ";
 		stack.pop_back();
-		for (auto neigbr = (*(adj_ptr+popped)).begin(); neigbr!=(*(adj_ptr+popped)).end();neigbr++){
-			if(!(std::find(traversed.begin(), traversed.end(), *neigbr) != traversed.end())){ 
-				stack.push_back(*neigbr);
+		for (auto neigbr :graph[popped]){
+			if(!(find(traversed, neigbr))){ 
+				stack.push_back(neigbr);
 				
 				}
 			}
@@ -25,7 +35,7 @@ void depthfirstsearch(std::vector<int>* adj_ptr, int& startnode){
 	
 	
 
-void breadthfirstsearch(std::vector<int>* adj_ptr, int& startnode){
+void breadthfirstsearch(std::vector<int>* graph, int& startnode){
 	
 	std::cout << "Breadth wise Traversal: ";
 	std::list<int> que;
@@ -36,13 +46,13 @@ void breadthfirstsearch(std::vector<int>* adj_ptr, int& startnode){
 		traversed.push_back(popped);
 		std::cout << popped << " ";
 		que.pop_front();
-		for (auto neigbr = (*(adj_ptr+popped)).begin(); neigbr!=(*(adj_ptr+popped)).end();neigbr++){
-			if(!(std::find(traversed.begin(), traversed.end(), *neigbr) != traversed.end())){ 
-				que.push_back(*neigbr);
+		for (auto neigbr :graph[popped]){
+			if(!(find(traversed, neigbr))){ 
+				que.push_back(neigbr);
 				
 				}
 			}
-			}
+		}
 	}
 	
 	
@@ -55,7 +65,7 @@ void topologicalsort(std::vector<int>* adj_ptr, int& node_num){
 	//setting the in_connections
 	int idx = 0;
 	while (idx < node_num){
-		for (auto neigbr = (*(adj_ptr+idx)).begin(); neigbr!=(*(adj_ptr+idx)).end();neigbr++){
+		for (auto neigbr = (*(adj_ptr+idx)).begin(); neigbr!=(*(adj_ptr+idx)).end();neigbr++){ 
 			in_connections[*neigbr] += 1;
 		}
 		idx += 1;

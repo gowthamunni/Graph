@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=roviero-dell-1
-Date                   :=24/05/23
+Date                   :=01/06/23
 CodeLitePath           :=/home/roviero-dell-1/.codelite
 LinkerName             :=/usr/bin/g++-11
 SharedObjectLinkerName :=/usr/bin/g++-11 -shared -fPIC
@@ -60,7 +60,7 @@ AS       := /usr/bin/as
 ## User defined environment variables
 ##
 CodeLiteDir:=/usr/share/codelite
-Objects0=$(IntermediateDirectory)/graph.cpp$(ObjectSuffix) $(IntermediateDirectory)/Graph_traversal_algorithms.cpp$(ObjectSuffix) $(IntermediateDirectory)/main.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Graph_traversal_algorithms.cpp$(ObjectSuffix) $(IntermediateDirectory)/graph.cpp$(ObjectSuffix) 
 
 
 
@@ -91,11 +91,11 @@ PreBuild:
 ##
 ## Objects
 ##
-$(IntermediateDirectory)/graph.cpp$(ObjectSuffix): graph.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/graph.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/graph.cpp$(DependSuffix) -MM graph.cpp
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/roviero-dell-1/old-projects/Linux/codes/Graph/Graph/Graph/graph.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/graph.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/graph.cpp$(PreprocessSuffix): graph.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/graph.cpp$(PreprocessSuffix) graph.cpp
+$(IntermediateDirectory)/main.cpp$(ObjectSuffix): main.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/main.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/main.cpp$(DependSuffix) -MM main.cpp
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/roviero-dell-1/old-projects/Linux/codes/Graph/Graph/Graph/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/main.cpp$(PreprocessSuffix): main.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/main.cpp$(PreprocessSuffix) main.cpp
 
 $(IntermediateDirectory)/Graph_traversal_algorithms.cpp$(ObjectSuffix): Graph_traversal_algorithms.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Graph_traversal_algorithms.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Graph_traversal_algorithms.cpp$(DependSuffix) -MM Graph_traversal_algorithms.cpp
@@ -103,11 +103,11 @@ $(IntermediateDirectory)/Graph_traversal_algorithms.cpp$(ObjectSuffix): Graph_tr
 $(IntermediateDirectory)/Graph_traversal_algorithms.cpp$(PreprocessSuffix): Graph_traversal_algorithms.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Graph_traversal_algorithms.cpp$(PreprocessSuffix) Graph_traversal_algorithms.cpp
 
-$(IntermediateDirectory)/main.cpp$(ObjectSuffix): main.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/main.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/main.cpp$(DependSuffix) -MM main.cpp
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/roviero-dell-1/old-projects/Linux/codes/Graph/Graph/Graph/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/main.cpp$(PreprocessSuffix): main.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/main.cpp$(PreprocessSuffix) main.cpp
+$(IntermediateDirectory)/graph.cpp$(ObjectSuffix): graph.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/graph.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/graph.cpp$(DependSuffix) -MM graph.cpp
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/roviero-dell-1/old-projects/Linux/codes/Graph/Graph/Graph/graph.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/graph.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/graph.cpp$(PreprocessSuffix): graph.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/graph.cpp$(PreprocessSuffix) graph.cpp
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)
